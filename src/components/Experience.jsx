@@ -1,77 +1,70 @@
 import { motion } from 'framer-motion';
-import { FaBriefcase, FaCalendarAlt, FaMapMarkerAlt } from 'react-icons/fa';
+import { FaCode, FaUsers, FaChartLine } from 'react-icons/fa';
 import './Experience.css';
 
 const Experience = () => {
   const experiences = [
     {
       title: 'Senior Frontend Developer',
-      company: 'Tech Company',
-      location: 'New York, NY',
+      company: 'Tech Innovators Inc.',
       period: '2022 - Present',
-      description: [
-        'Led the development of a new customer-facing web application',
-        'Implemented modern UI/UX practices and improved performance',
-        'Mentored junior developers and conducted code reviews',
-      ],
+      icon: <FaCode />,
+      description: 'Led development of customer-facing web applications using React and TypeScript. Improved performance by 40% and mentored junior developers.'
     },
     {
       title: 'Full Stack Developer',
-      company: 'Digital Agency',
-      location: 'San Francisco, CA',
+      company: 'Digital Solutions Agency',
       period: '2020 - 2022',
-      description: [
-        'Developed and maintained multiple client projects',
-        'Collaborated with designers to implement responsive designs',
-        'Optimized application performance and user experience',
-      ],
+      icon: <FaUsers />,
+      description: 'Developed multiple client projects using MERN stack. Implemented CI/CD pipelines and led a team of 4 developers.'
     },
     {
       title: 'Junior Developer',
-      company: 'Startup Inc',
-      location: 'Boston, MA',
+      company: 'Startup Vision',
       period: '2019 - 2020',
-      description: [
-        'Assisted in developing web applications',
-        'Learned and implemented new technologies',
-        'Participated in agile development processes',
-      ],
-    },
+      icon: <FaChartLine />,
+      description: 'Assisted in developing web applications using React and Node.js. Contributed to frontend and backend development.'
+    }
   ];
 
   return (
-    <div className="experience-timeline">
-      {experiences.map((exp, index) => (
-        <motion.div
-          key={exp.title}
-          initial={{ opacity: 0, y: 20 }}
+    <section className="experience-section">
+      <div className="experience-container">
+        <motion.div 
+          className="experience-header"
+          initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: index * 0.1 }}
-          className="experience-item"
+          transition={{ duration: 0.5 }}
         >
-          <div className="experience-icon">
-            <FaBriefcase />
-          </div>
-          <div className="experience-content">
-            <h3 className="experience-title">{exp.title}</h3>
-            <div className="experience-company">{exp.company}</div>
-            <div className="experience-details">
-              <span className="experience-location">
-                <FaMapMarkerAlt /> {exp.location}
-              </span>
-              <span className="experience-period">
-                <FaCalendarAlt /> {exp.period}
-              </span>
-            </div>
-            <ul className="experience-description">
-              {exp.description.map((item, i) => (
-                <li key={i}>{item}</li>
-              ))}
-            </ul>
-          </div>
+          <h2 className="experience-title-main">Experience</h2>
+          <p className="experience-subtitle">
+            My professional journey
+          </p>
         </motion.div>
-      ))}
-    </div>
+
+        <div className="experience-timeline">
+          {experiences.map((exp, index) => (
+            <motion.div
+              key={exp.title}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: index * 0.2 }}
+              className={`experience-item ${index % 2 === 0 ? 'left' : 'right'}`}
+            >
+              <div className="experience-icon">
+                {exp.icon}
+              </div>
+              <div className="experience-content">
+                <h3 className="experience-title">{exp.title}</h3>
+                <div className="experience-company">{exp.company}</div>
+                <div className="experience-period">{exp.period}</div>
+                <p className="experience-description">{exp.description}</p>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
   );
 };
 
