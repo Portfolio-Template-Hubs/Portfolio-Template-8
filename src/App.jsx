@@ -4,12 +4,16 @@ import Hero from './components/Hero';
 import Projects from './components/Projects';
 import Experience from './components/Experience';
 import Skills from './components/Skills';
+import Testimonials from './components/Testimonials';
 import Contact from './components/Contact';
+import Footer from './components/Footer';
+import ParticleBackground from './components/ParticleBackground';
 import './styles/global.css';
 
 function App() {
   return (
     <div className="app">
+      <ParticleBackground />
       <Navbar />
       <main>
         <motion.div
@@ -92,6 +96,30 @@ function App() {
           </div>
         </section>
 
+        <section id="testimonials" className="section">
+          <div className="container">
+            <motion.h2 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+              className="section-title"
+            >
+              Testimonials
+            </motion.h2>
+            <motion.p 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
+              className="section-subtitle"
+            >
+              What my clients say about my work
+            </motion.p>
+            <Testimonials />
+          </div>
+        </section>
+
         <section id="contact" className="section">
           <div className="container">
             <motion.h2 
@@ -116,6 +144,7 @@ function App() {
           </div>
         </section>
       </main>
+      <Footer />
     </div>
   );
 }

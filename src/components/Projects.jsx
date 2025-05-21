@@ -1,10 +1,9 @@
-import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
+import { motion } from 'framer-motion';
+import { FaExternalLinkAlt } from 'react-icons/fa';
+import ProjectGallery from './ProjectGallery';
 import './Projects.css';
 
 const Projects = () => {
-  const [activeFilter, setActiveFilter] = useState('all');
 
   const projects = [
     {
@@ -63,41 +62,6 @@ const Projects = () => {
     }
   ];
 
-  const filters = [
-    { id: 'all', label: 'All Projects' },
-    { id: 'web', label: 'Web Development' },
-    { id: 'ai', label: 'AI/ML' },
-    { id: 'data', label: 'Data Science' },
-    { id: 'iot', label: 'IoT' },
-    { id: 'blockchain', label: 'Blockchain' }
-  ];
-
-  const filteredProjects = activeFilter === 'all'
-    ? projects
-    : projects.filter(project => project.category === activeFilter);
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1
-      }
-    }
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.5,
-        ease: [0.4, 0, 0.2, 1]
-      }
-    }
-  };
-
   return (
     <motion.section 
       className="projects-section"
@@ -125,100 +89,8 @@ const Projects = () => {
           </motion.p>
         </div>
 
-        {/* Project Filters */}
-        <motion.div 
-          className="projects-filters"
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-        >
-          {filters.map((filter) => (
-            <motion.button
-              key={filter.id}
-              onClick={() => setActiveFilter(filter.id)}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className={`filter-button ${activeFilter === filter.id ? 'active' : ''}`}
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.3 }}
-            >
-              {filter.label}
-            </motion.button>
-          ))}
-        </motion.div>
+        <ProjectGallery projects={projects} />
 
-        {/* Projects Grid */}
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={activeFilter}
-            className="projects-grid"
-            variants={containerVariants}
-            initial="hidden"
-            animate="visible"
-            exit="hidden"
-          >
-            {filteredProjects.map((project) => (
-              <motion.article
-                key={project.title}
-                variants={itemVariants}
-                className="project-card"
-                whileHover={{ 
-                  scale: 1.02,
-                  transition: { duration: 0.3 }
-                }}
-              >
-                <div className="project-image">
-                  <img src={project.image} alt={project.title} />
-                  <div className="project-overlay">
-                    <div className="project-links">
-                      <motion.a 
-                        href={project.github} 
-                        className="project-link" 
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                        whileHover={{ scale: 1.1 }}
-                        whileTap={{ scale: 0.95 }}
-                      >
-                        <FaGithub />
-                        <span>Code</span>
-                      </motion.a>
-                      <motion.a 
-                        href={project.live} 
-                        className="project-link" 
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                        whileHover={{ scale: 1.1 }}
-                        whileTap={{ scale: 0.95 }}
-                      >
-                        <FaExternalLinkAlt />
-                        <span>Live Demo</span>
-                      </motion.a>
-                    </div>
-                  </div>
-                </div>
-                <div className="project-content">
-                  <h3 className="project-title">{project.title}</h3>
-                  <p className="project-description">{project.description}</p>
-                  <div className="project-technologies">
-                    {project.technologies.map((tech) => (
-                      <motion.span
-                        key={tech}
-                        className="project-tech"
-                        whileHover={{ scale: 1.1 }}
-                        whileTap={{ scale: 0.95 }}
-                      >
-                        {tech}
-                      </motion.span>
-                    ))}
-                  </div>
-                </div>
-              </motion.article>
-            ))}
-          </motion.div>
-        </AnimatePresence>
-
-        {/* View More Button */}
         <motion.div
           className="view-more-container"
           initial={{ opacity: 0, y: 20 }}
@@ -240,4 +112,4 @@ const Projects = () => {
   );
 };
 
-export default Projects; 
+export default Projects;
