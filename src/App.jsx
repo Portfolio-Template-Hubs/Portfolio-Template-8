@@ -4,6 +4,10 @@ import Hero from './components/Hero';
 import Projects from './components/Projects';
 import Experience from './components/Experience';
 import Skills from './components/Skills';
+import Services from './components/Services';
+import Blog from './components/Blog';
+import Achievements from './components/Achievements';
+import Gallery from './components/Gallery';
 import Testimonials from './components/Testimonials';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
@@ -96,6 +100,54 @@ function App() {
           </div>
         </section>
 
+        <section id="services" className="section">
+          <div className="container">
+            <motion.h2 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+              className="section-title"
+            >
+              Services
+            </motion.h2>
+            <motion.p 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
+              className="section-subtitle"
+            >
+              Specialized solutions I offer to help bring your vision to life
+            </motion.p>
+            <Services />
+          </div>
+        </section>
+
+        <section id="achievements" className="section">
+          <div className="container">
+            <motion.h2 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+              className="section-title"
+            >
+              Achievements
+            </motion.h2>
+            <motion.p 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
+              className="section-subtitle"
+            >
+              Awards, certifications, and notable accomplishments
+            </motion.p>
+            <Achievements />
+          </div>
+        </section>
+
         <section id="testimonials" className="section">
           <div className="container">
             <motion.h2 
@@ -117,6 +169,54 @@ function App() {
               What my clients say about my work
             </motion.p>
             <Testimonials />
+          </div>
+        </section>
+
+        <section id="blog" className="section">
+          <div className="container">
+            <motion.h2 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+              className="section-title"
+            >
+              Blog
+            </motion.h2>
+            <motion.p 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
+              className="section-subtitle"
+            >
+              Thoughts, insights, and tutorials on web development and design
+            </motion.p>
+            <Blog />
+          </div>
+        </section>
+
+        <section id="gallery" className="section">
+          <div className="container">
+            <motion.h2 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+              className="section-title"
+            >
+              Gallery
+            </motion.h2>
+            <motion.p 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
+              className="section-subtitle"
+            >
+              A showcase of my visual work and design projects
+            </motion.p>
+            <Gallery />
           </div>
         </section>
 

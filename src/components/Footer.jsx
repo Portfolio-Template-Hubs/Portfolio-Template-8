@@ -23,7 +23,11 @@ const Footer = () => {
     { name: 'Projects', url: '#projects' },
     { name: 'Experience', url: '#experience' },
     { name: 'Skills', url: '#skills' },
+    { name: 'Services', url: '#services' },
+    { name: 'Achievements', url: '#achievements' },
     { name: 'Testimonials', url: '#testimonials' },
+    { name: 'Blog', url: '#blog' },
+    { name: 'Gallery', url: '#gallery' },
     { name: 'Contact', url: '#contact' },
   ];
 
